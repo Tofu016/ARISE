@@ -240,7 +240,6 @@ export default function App() {
                   ? (path[1]?.nodeID?.includes('Portal') ? "Bridge to Next Building" : `Head to ${path[path.length-1].nodeID.split('_').pop()}`)
                   : 'Destination Reached'}
               </Text>
-              <Text style={styles.distanceText}>{path.length} waypoints remaining</Text>
             </View>
 
             <TouchableOpacity 
