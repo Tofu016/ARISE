@@ -126,16 +126,9 @@ export default function App() {
       <SafeAreaView style={styles.container}>
         <StatusBar barStyle="dark-content" />
 
-        <View style={styles.header}>
-        <Text style={styles.headerTitle}>ARISE</Text>
-        <Text style={styles.headerSubtitle}>
-          {selectedCampus === 'Nodes_Main' ? 'Main Campus' : 'Digital Campus'}
-        </Text>
-      </View>
-
       {/* PAGE 2: SEARCH & FILTERS */}
       {page === 2 && (
-        <View style={styles.content}>
+        <View style={[styles.content, { flex: 1, justifyContent: 'center' }]}>
           
           {/* CAMPUS TOGGLE */}
           <View style={[styles.toggleContainer, { marginBottom: 10 }]}>
