@@ -15,7 +15,7 @@ import {
  * ─────────────────────────────────────────────────────────────────────────────
  */
 const MAIN_HORIZONTAL_SCALE = 0.54;
-const DIGITAL_HORIZONTAL_SCALE = 0.60;
+const DIGITAL_HORIZONTAL_SCALE = 0.74;
 const VERTICAL_SCALE = 0.14;
 
 export const NavigationScene = (props) => {
