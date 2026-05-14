@@ -6,13 +6,14 @@ import { StyleSheet } from 'react-native';
  * All UI components import from here so the style is consistent.
  */
 export const COLORS = {
-  primary: '#B22222',       // University Red
-  secondary: '#F5F5F5',     // Light grey background
-  text: '#333333',
+  primary: '#A12124',       // CSP red
+  secondary: '#FAF9F6',     // Soft cream background
+  surface: '#FFFFFF',
+  text: '#11181C',
   white: '#FFFFFF',
   overlay: 'rgba(255, 255, 255, 0.95)',
   success: '#2E7D32',
-  grey: '#999999',
+  grey: '#687076',
 };
 
 export const styles = StyleSheet.create({
@@ -27,7 +28,7 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: COLORS.white,
     borderBottomWidth: 1,
-    borderBottomColor: '#eee',
+    borderBottomColor: '#EAE8E3',
   },
   headerTitle: {
     fontSize: 28,
@@ -44,7 +45,7 @@ export const styles = StyleSheet.create({
   content: {
     flex: 1,
     padding: 20,
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
   },
 
   heroCard: {
@@ -71,7 +72,7 @@ export const styles = StyleSheet.create({
   },
 
   searchCard: {
-    backgroundColor: COLORS.white,
+    backgroundColor: COLORS.surface,
     padding: 20,
     borderRadius: 15,
     elevation: 5,
@@ -86,11 +87,11 @@ export const styles = StyleSheet.create({
   inputWrapper: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#F9F9F9',
+    backgroundColor: COLORS.surface,
     padding: 12,
     borderRadius: 10,
     borderWidth: 1,
-    borderColor: '#eee',
+    borderColor: '#EAE8E3',
   },
   input: {
     flex: 1,
@@ -157,7 +158,7 @@ export const styles = StyleSheet.create({
   
   toggleContainer: {
     flexDirection: 'row',
-    backgroundColor: '#eee',
+    backgroundColor: '#F4F3F1',
     borderRadius: 12,
     padding: 4,
     marginBottom: 20,

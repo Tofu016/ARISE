@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Text, View, TouchableOpacity, TextInput, SafeAreaView, StatusBar, ActivityIndicator, Alert } from 'react-native';
+import { Text, View, TouchableOpacity, TextInput, StatusBar, ActivityIndicator, Alert } from 'react-native';
+import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import { MapPin, Navigation, Search, Camera, School, Cpu } from 'lucide-react-native';
 import { ViroARSceneNavigator } from '@reactvision/react-viro';
 import { NavigationScene } from './src/components/NavigationScene';
@@ -13,7 +14,7 @@ import { styles, COLORS } from './src/styles/theme';
 
 export default function App() {
   // ── 1. States ──────────────────────────────────────────────────────────────
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(2);
   const [loading, setLoading] = useState(true);
   
   // Campus Toggle: 'Nodes_Main' or 'Nodes_Digital'
@@ -121,33 +122,16 @@ export default function App() {
 
   // ── 5. Main Render ──────────────────────────────────────────────────────────
   return (
-    <SafeAreaView style={styles.container}>
-      <StatusBar barStyle="dark-content" />
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container}>
+        <StatusBar barStyle="dark-content" />
 
-      <View style={styles.header}>
+        <View style={styles.header}>
         <Text style={styles.headerTitle}>ARISE</Text>
         <Text style={styles.headerSubtitle}>
           {selectedCampus === 'Nodes_Main' ? 'Main Campus' : 'Digital Campus'}
         </Text>
       </View>
-
-      {/* PAGE 1: DASHBOARD */}
-      {page === 1 && (
-        <View style={styles.content}>
-          <View style={styles.heroCard}>
-            <Camera color={COLORS.primary} size={50} strokeWidth={1.5} />
-            <Text style={styles.heroText}>Welcome, Navigator</Text>
-            <Text style={styles.heroSubtext}>
-              {Object.keys(nodeMap).length} spatial nodes synchronized for this campus.
-            </Text>
-          </View>
-
-          <TouchableOpacity style={styles.mainButton} onPress={() => setPage(2)}>
-            <Navigation color="white" size={20} />
-            <Text style={styles.buttonText}>START NAVIGATION</Text>
-          </TouchableOpacity>
-        </View>
-      )}
 
       {/* PAGE 2: SEARCH & FILTERS */}
       {page === 2 && (
@@ -184,9 +168,9 @@ export default function App() {
                     marginHorizontal: 2,
                     paddingVertical: 8,
                     borderRadius: 10,
-                    backgroundColor: selectedBuilding === bldg ? COLORS.primary : COLORS.white,
+                    backgroundColor: selectedBuilding === bldg ? COLORS.primary : COLORS.surface,
                     borderWidth: 1,
-                    borderColor: selectedBuilding === bldg ? COLORS.primary : '#ddd',
+                    borderColor: selectedBuilding === bldg ? COLORS.primary : '#EAE8E3',
                     alignItems: 'center'
                   }}
                 >
@@ -231,10 +215,6 @@ export default function App() {
           <TouchableOpacity style={styles.mainButton} onPress={handleCalculate}>
             <Text style={styles.buttonText}>CALCULATE ROUTE</Text>
           </TouchableOpacity>
-
-          <TouchableOpacity onPress={() => setPage(1)}>
-            <Text style={styles.backLink}>Return to Dashboard</Text>
-          </TouchableOpacity>
         </View>
       )}
 
@@ -264,14 +244,15 @@ export default function App() {
             </View>
 
             <TouchableOpacity 
-              style={[styles.mainButton, { backgroundColor: 'rgba(178, 34, 34, 0.9)' }]} 
-              onPress={() => { setPath([]); setPage(1); }}
+              style={[styles.mainButton, { backgroundColor: 'rgba(161, 33, 36, 0.9)' }]} 
+              onPress={() => { setPath([]); setPage(2); }}
             >
               <Text style={styles.buttonText}>END SESSION</Text>
             </TouchableOpacity>
           </View>
         </View>
       )}
-    </SafeAreaView>
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 }
